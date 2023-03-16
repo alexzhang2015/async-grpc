@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+
+    client:
+        build: .
+        command: python3 /code/async_greeter_client.py
+        volumes:
+            - .:/code
+        depends_on: 
+            - server
+
+    server:
+        build: .
+        command: python3 /code/async_greeter_server.py
+        volumes:
+            - .:/code
